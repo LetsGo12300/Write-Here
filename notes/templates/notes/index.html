@@ -1,0 +1,83 @@
+{% extends 'notes/layout.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div id="switch-div">
+  <span id="sw-desc">Notes View</span>
+  <label class="switch">
+    <input type="checkbox">
+    <span id="sw" class="slider"></span>
+  </label>
+</div>
+{% endif %}
+
+
+<div id="notes-div" class="notes-view">
+
+    {% for note in notes %}
+    <div class="note-item" id="note-{{ note.pkey }}">
+        <div class="note-header">
+          <b id="title-{{note.pkey}}">{{ note.title }}</b>
+
+          {% if note.pinned == "True" %}
+            <p id="pin-img-{{note.pkey}}">
+              <img class="pin-img" src="{% static 'notes/pin.png' %}"/>
+            </p>
+          {% else %}
+            <p id="pin-img-{{note.pkey}}" style="display: none;">
+              <img class="pin-img" src="{% static 'notes/pin.png' %}"/>
+            </p>
+          {% endif %}
+            
+          <div class="note-btns" id="note-btns-{{ note.pkey }}">
+            
+            <button type="button" class="del-btn" id="del-btn-{{note.pkey}}">Delete</button>
+            {% if note.pinned == "False" %}
+              <button type="button" class="pin-btn" value="pin" id="pin-btn-{{note.pkey}}">Pin</button>
+            {% else %}
+              <button type="button" class="pin-btn" value="unpin" id="pin-btn-{{note.pkey}}">Unpin</button>
+            {% endif %}
+          </div>
+        </div>
+        
+        <div class="note-content" id="content-{{note.pkey}}">
+          {{ note.content|safe }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <br>
+    <div id="create-note-index">
+      <div id="form-create">
+          <input id="form-title" type="text" name="form-title" required>
+          <br><br>
+          <p id="form-output" style="max-height: 250px; overflow-y: auto"></p>
+          <input id="save-button" style="margin-top: 1.2rem" type="submit" value="Save"> 
+      </div>
+      <br><br>
+      Last edited:
+      <span id="timecheck">
+
+      </span>
+    </div>
+    
+  </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'notes/notes.js' %}" ></script>
+{% endblock %}

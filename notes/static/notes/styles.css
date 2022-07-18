@@ -1,0 +1,273 @@
+p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#login {
+  margin: 30px;
+}
+
+.notes-view {
+  margin: 10px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.list-view {
+  margin: 10px 300px;
+}
+
+.note-item {
+  margin: 5px;
+  border: 2px solid;
+  padding: 5px;
+  min-height: max-content;
+  border-color: black;
+  background-color: powderblue;
+  word-break: break-all;
+  flex-basis: 30%;
+  cursor: pointer;
+  animation-name: hide;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+    margin: 5px;
+    padding: 5px;
+    min-height: max-content;
+    border-color: black;
+    background-color: powderblue;
+    word-break: break-all;
+    flex-basis: 30%;
+  }
+  65% {
+    opacity: 0;
+    padding: 5px;
+    margin: 5px;
+    flex-basis: 30%;
+  }
+  100% {
+    opacity: 0;
+    padding: 0px;
+    margin: 0px;
+    flex-basis: 30%;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    padding: 0px;
+    margin: 0px;
+    min-height: max-content;
+    border-color: black;
+    background-color: powderblue;
+    word-break: break-all;
+    flex-basis: 30%;
+  }
+  65% {
+    opacity: 0;
+    padding: 0px;
+    margin: 0px;
+    min-height: max-content;
+    border-color: black;
+    background-color: powderblue;
+    word-break: break-all;
+    flex-basis: 30%;
+  }
+  100% {
+    opacity: 1;
+    margin: 5px;
+    padding: 5px;
+    min-height: max-content;
+    border-color: black;
+    background-color: powderblue;
+    word-break: break-all;
+    flex-basis: 30%;
+  }
+}
+
+#create-note {
+  text-align: center;
+  margin: 40px 160px;
+}
+
+#create-note-index {
+  text-align: center;
+  margin: 0px 160px;
+}
+
+textarea,
+#form-title {
+  max-width: 100%;
+  width: 800px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* 15% from the top and centered */
+  padding: 15px;
+  border: 1px solid #888;
+  width: 90% !important; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#form-create {
+  text-align: center;
+  display: inline;
+}
+
+#switch-div {
+  text-align: right;
+  margin: 15px;
+}
+
+#sw-desc {
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 85px;
+  text-align: center;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 0.5px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.note-btns {
+  text-align: right;
+  display: none;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  min-height: 30px;
+}
+
+.pin-img {
+  height: 30px;
+}
+
+.note-content {
+  margin-top: 5px;
+}
+
+#trash-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
+#delete-btn {
+  margin: 0px 5px;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: gray;
+}
+
+#logo {
+  color: #546371;
+  background-color: rgb(227, 243, 245);
+  border-radius: 3px;
+}

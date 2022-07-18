@@ -1,0 +1,18 @@
+{% extends 'notes/layout.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div id="login">
+    <h2>Log In</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Log In</button>
+    </form>
+    <br>
+    No account yet?
+    <a href="/account/signup">Register Here</a>
+</div>
+
+{% endblock %}

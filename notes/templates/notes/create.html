@@ -1,0 +1,17 @@
+{% extends 'notes/layout.html' %}
+
+{% block title %}Create a Note{% endblock %}
+
+{% block content %}
+
+<div id="create-note">
+    <form action="" method="POST" id="form-create">
+        {% csrf_token %}
+        <input id="form-title" type="text" name="form-title" required>
+        <br><br>
+        {{ form.content }}
+        <input id="save-button" type="submit" value="Save"> 
+    </form>
+</div>
+
+{% endblock %}
